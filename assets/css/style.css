@@ -28,8 +28,9 @@ body {
     }
 
   #end-page p {
-	font-size: 20px;
-	/* font-weight: 700; */
+  font-size: 20px;
+  font-family: 'Stardos Stencil', cursive;
+  font-weight: bolder;
   }
   
   #correct-answers {
@@ -62,4 +63,3 @@ body {
 	font-family: 'Stardos Stencil', cursive;
 	margin-top: 20px;
   }
-  

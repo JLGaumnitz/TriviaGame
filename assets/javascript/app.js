@@ -35,7 +35,6 @@ var gameState = {
   },
 
   // Hide the quetions and display the end page with results
-  // I would like to display the correct answers here, too.
 
   showEndPage: function (numberCorrect, numberIncorrect, numberUnanswered) {
     $("#end-page").show();
@@ -45,6 +44,7 @@ var gameState = {
     $("#correctAnswers").text("Correct answers (Hay!): " + numberCorrect);
     $("#incorrectAnswers").text("Incorrect answers (Neigh!): " + numberIncorrect);
     $("#unansweredQuestions").text("Unanswered questions: " + numberUnanswered);
+    $("#listOfCorrectAnswers").text("The correct answers were: " + correctAnswers);
   }
 }
 
@@ -95,11 +95,10 @@ var trivia = {
       } else if (userAnswer === "") {
         numberUnanswered++;
       } else if (userAnswer !== correctAnswer) {
-        {
-          numberIncorrect++;
-        }
+        numberIncorrect++;
       }
     }
+   
 
     //Reveal the end page with the score tally
     gameState.showEndPage(numberCorrect, numberIncorrect, numberUnanswered);
@@ -161,3 +160,11 @@ var questionBank =
       correct: "Horses are color blind."
     }
   ]
+
+ // Creates a list of all the correct answers to display at the bottom of the end page
+ var correctAnswers = [] 
+ for (var i = 0; i < questionBank.length; i++) {
+   correctAnswer = questionBank[i].correct;
+   correctAnswers.push(" " + correctAnswer);
+ }
+ 
